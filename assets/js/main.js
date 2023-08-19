@@ -93,6 +93,81 @@ const sr = ScrollReveal({
     // reset: true
 })
 
+// INPUT SCRIPT PARA ELIMINAR AL ESCRIBIR TEXTO
+document.addEventListener("DOMContentLoaded", function() {
+    const inputFields = document.querySelectorAll('.input');
+
+    inputFields.forEach(input => {
+      const label = input.nextElementSibling;
+
+      input.addEventListener('focus', () => {
+        label.classList.add('focused');
+      });
+
+      input.addEventListener('blur', () => {
+        if (input.value === '') {
+          label.classList.remove('focused');
+        }
+      });
+
+      // Initial check
+      if (input.value !== '') {
+        label.classList.add('focused');
+      }
+    });
+  });
+
+  //validacion de formulario
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form');
+    const nameInput = document.querySelector('input[name="name"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const errorMessage = document.querySelector('.error-message');
+
+    form.addEventListener('submit', function(event) {
+      const nameValue = nameInput.value.trim();
+      const emailValue = emailInput.value.trim();
+      const phoneValue = phoneInput.value.trim();
+
+      errorMessage.textContent = '';
+
+      if (nameValue === '') {
+        event.preventDefault();
+        displayError('El campo de nombre es requerido.');
+        return;
+      }
+
+      if (!/^[a-zA-Z\s]+$/.test(nameValue)) {
+        event.preventDefault();
+        displayError('El campo de nombre no debe contener números.');
+        return;
+      }
+
+      if (emailValue === '' || !isValidEmail(emailValue)) {
+        event.preventDefault();
+        displayError('Ingrese un correo electrónico válido.');
+        return;
+      }
+
+      if (!/^\d+$/.test(phoneValue)) {
+        event.preventDefault();
+        displayError('El campo de teléfono solo debe contener números.');
+        return;
+      }
+    });
+
+    function isValidEmail(email) {
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailPattern.test(email);
+    }
+
+    function displayError(message) {
+      errorMessage.textContent = message;
+    }
+  });
+
 sr.reveal(`.home-swiper, .new-swiper, .newsletter__container`)
 sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100})
 sr.reveal(`.about__data, .discount__img`,{origin: 'left'})

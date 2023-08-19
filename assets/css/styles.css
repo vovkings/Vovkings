@@ -432,6 +432,7 @@ button{
   width: 279px;
   justify-self: center;
   animation: floating 2s ease-in-out infinite;
+  border-radius: 5px;
 }
 
 /*=============== TRICK OR TREAT ===============*/
@@ -998,7 +999,7 @@ button{
 .containerForm {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   padding: 2rem;
   overflow: hidden;
   display: flex;
@@ -1062,7 +1063,7 @@ form {
   border: 2px solid black;
   background: none;
   padding: 0.6rem 1.2rem;
-  color: #fff;
+  color: black;
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.5px;

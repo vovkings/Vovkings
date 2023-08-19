@@ -16,7 +16,7 @@
 
   /*Green gradient*/
   --body-color: linear-gradient(136deg, #85FBFF, #85FBFF);
-  --container-color: linear-gradient(90deg, rgb(74,140,142) 0%, rgb(133,251,255) 100%);
+  --container-color: linear-gradient(90deg, rgb(133,251,255) 0%, rgb(133,251,255) 100%); /* topbar*/
 
   
   /*Red gradient*/
@@ -170,7 +170,8 @@ button{
 }
 
 .nav__logo-img{
-  width: 1.25rem;
+  width: 12.25rem;
+  padding-top: 0.2rem;
 }
 
 .nav__link,
@@ -428,7 +429,7 @@ button{
 }
 
 .about__img{
-  width: 200px;
+  width: 279px;
   justify-self: center;
   animation: floating 2s ease-in-out infinite;
 }
@@ -626,6 +627,7 @@ button{
 .footer{
   position: relative;
   overflow: hidden;
+  padding-top: 0px;
 }
 
 .footer__img-one,
@@ -665,7 +667,7 @@ button{
 }
 
 .footer__logo-img{
-  width: 20px;
+  width: 155px;
 }
 
 .footer__description{
@@ -947,7 +949,7 @@ button{
     column-gap: 7rem;
   }
   .about__img{
-    width: 350px;
+    width: 465px;
   }
   .about__description{
     padding-right: 2rem;
